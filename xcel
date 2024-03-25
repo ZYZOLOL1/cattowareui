@@ -4,7 +4,6 @@ local library = {
 	items = { } 
 }
 
--- Services
 local players = game:GetService("Players")
 local uis = game:GetService("UserInputService")
 local runservice = game:GetService("RunService")
@@ -44,20 +43,14 @@ theme = {
     itemscolor2 = Color3.fromRGB(210, 210, 210)
 }
 
-if library.theme.cursor and Drawing then
+if theme.cursor and Drawing then
     local success = pcall(function() 
-       
+        -- Do nothing here as we're not creating a custom cursor
     end)
     if success then
-        uis.InputChanged:Connect(function(input)
-            if uis.MouseEnabled then
-                
-            end
-        end)
-        
-        game:GetService("RunService").RenderStepped:Connect(function()
+        runservice.RenderStepped:Connect(function()
             uis.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
-            
+            -- No need to manage visibility as we're using the default cursor
         end)
     end
 end
