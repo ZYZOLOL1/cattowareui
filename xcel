@@ -45,12 +45,12 @@ theme = {
 
 if theme.cursor and Drawing then
     local success = pcall(function() 
-        -- Do nothing here as we're not creating a custom cursor
+        
     end)
     if success then
         runservice.RenderStepped:Connect(function()
             uis.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
-            -- No need to manage visibility as we're using the default cursor
+            
         end)
     end
 end
